@@ -2,6 +2,12 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+class car:
+    def __init__(self, first, second, third):
+        self.first = first
+        self.second = second
+        self.third = third
+
 @app.route("/")
 def home():
 
@@ -26,3 +32,9 @@ def home():
     }
 
     return render_template("home.html", **kywords)
+
+@app.route("/obj")
+def obj():
+    cars = car("Tesla", "Audi", "BMW")
+    return render_template("obj.html", car = cars)
+
