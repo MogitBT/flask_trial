@@ -38,3 +38,7 @@ def obj():
     cars = car("Tesla", "Audi", "BMW")
     return render_template("obj.html", car = cars)
 
+@app.route("/conditional")
+def condtional():
+    company = "Apple"
+    return render_template("conditional.html", company = company)
