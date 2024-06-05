@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -42,3 +42,10 @@ def obj():
 def condtional():
     company = "Apple"
     return render_template("conditional.html", company = company)
+
+@app.route("/subscription", methods = ['GET', 'POST'])
+def subscription():
+    if request.method == "POST":
+        mail = request.form.get("email")
+        print(mail)
+    return render_template("subscription_form.html")
